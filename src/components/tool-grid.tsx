@@ -1,5 +1,7 @@
+'use client';
 
 import React from 'react';
+import {useRouter} from 'next/navigation';
 
 const tools = [
   {
@@ -8,6 +10,7 @@ const tools = [
     pricing: 'Free',
     rating: 4.5,
     thumbnail: 'https://picsum.photos/200/150', // Placeholder image
+    id: 'tool-1',
   },
   {
     name: 'Tool Name 2',
@@ -15,6 +18,7 @@ const tools = [
     pricing: 'Paid',
     rating: 3.8,
     thumbnail: 'https://picsum.photos/200/150', // Placeholder image
+    id: 'tool-2',
   },
   {
     name: 'Tool Name 3',
@@ -22,6 +26,7 @@ const tools = [
     pricing: 'Free',
     rating: 4.2,
     thumbnail: 'https://picsum.photos/200/150', // Placeholder image
+    id: 'tool-3',
   },
   {
     name: 'Tool Name 4',
@@ -29,10 +34,13 @@ const tools = [
     pricing: 'Paid',
     rating: 4.7,
     thumbnail: 'https://picsum.photos/200/150', // Placeholder image
+    id: 'tool-4',
   },
 ];
 
 export const ToolGrid = () => {
+  const router = useRouter();
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {tools.map((tool, index) => (
@@ -40,8 +48,7 @@ export const ToolGrid = () => {
           key={index}
           className="bg-card rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer"
           onClick={() => {
-            // TODO: Implement navigation to tool detail page
-            alert(`Go to detail page for ${tool.name}`);
+            router.push(`/tool/${tool.id}`);
           }}
         >
           <img src={tool.thumbnail} alt={tool.name} className="w-full h-40 object-cover"/>
@@ -67,3 +74,5 @@ export const ToolGrid = () => {
     </div>
   );
 };
+
+    
