@@ -1,0 +1,69 @@
+
+import React from 'react';
+
+const tools = [
+  {
+    name: 'Tool Name 1',
+    description: 'A short description of the tool.',
+    pricing: 'Free',
+    rating: 4.5,
+    thumbnail: 'https://picsum.photos/200/150', // Placeholder image
+  },
+  {
+    name: 'Tool Name 2',
+    description: 'A short description of the tool.',
+    pricing: 'Paid',
+    rating: 3.8,
+    thumbnail: 'https://picsum.photos/200/150', // Placeholder image
+  },
+  {
+    name: 'Tool Name 3',
+    description: 'A short description of the tool.',
+    pricing: 'Free',
+    rating: 4.2,
+    thumbnail: 'https://picsum.photos/200/150', // Placeholder image
+  },
+  {
+    name: 'Tool Name 4',
+    description: 'A short description of the tool.',
+    pricing: 'Paid',
+    rating: 4.7,
+    thumbnail: 'https://picsum.photos/200/150', // Placeholder image
+  },
+];
+
+export const ToolGrid = () => {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {tools.map((tool, index) => (
+        <div
+          key={index}
+          className="bg-card rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+          onClick={() => {
+            // TODO: Implement navigation to tool detail page
+            alert(`Go to detail page for ${tool.name}`);
+          }}
+        >
+          <img src={tool.thumbnail} alt={tool.name} className="w-full h-40 object-cover"/>
+          <div className="p-4">
+            <h3 className="text-xl font-semibold text-foreground mb-2">{tool.name}</h3>
+            <p className="text-muted-foreground">{tool.description}</p>
+            <div className="mt-3 flex items-center justify-between">
+              <span
+                className={`px-2 py-1 rounded-full text-xs font-semibold ${
+                  tool.pricing === 'Free' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                }`}
+              >
+                {tool.pricing}
+              </span>
+              <div className="flex items-center">
+                <span className="text-sm mr-1">{tool.rating}</span>
+                ⭐
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};

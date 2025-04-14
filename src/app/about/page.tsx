@@ -1,25 +1,21 @@
 
 import React from 'react';
 import {Navbar} from "@/components/navbar";
-import {SearchBar} from "@/components/search-bar";
-import {CategoryGrid} from "@/components/category-grid";
 import {Footer} from "@/components/footer";
 
-export default function Home() {
+export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Navbar/>
       <main className="flex-grow py-6 md:py-12">
         <div className="container mx-auto px-4">
-          <SearchBar/>
-          <section className="mt-12">
-            <h2 className="text-2xl font-semibold mb-6">Categories</h2>
-            <CategoryGrid/>
-          </section>
+          <h1 className="text-3xl font-semibold mb-6">About ToolScout</h1>
+          <p className="text-muted-foreground">
+            ToolScout is dedicated to helping you discover the best online tools for your needs.
+          </p>
         </div>
       </main>
       <Footer/>
     </div>
   );
 }
-
