@@ -14,7 +14,7 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768); // Adjust breakpoint as needed
+      setIsMobile(window.innerWidth < 400); // Adjust breakpoint as needed
     };
 
     handleResize();
@@ -86,4 +86,5 @@ export const Navbar = () => {
     </header>
   );
 };
+
 
