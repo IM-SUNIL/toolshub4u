@@ -8,16 +8,34 @@ import {Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTri
 import {useRouter} from "next/navigation";
 import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
 import {Button} from "@/components/ui/button";
-import {useTheme} from 'next-themes';
 import {Sun, Moon} from 'lucide-react';
-import {Switch} from "@/components/ui/switch";
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const router = useRouter();
   const searchInputRef = useRef<HTMLInputElement>(null);
-  const {setTheme, theme} = useTheme();
+  const [theme, setTheme] = useState(() => {
+    if (typeof localStorage !== 'undefined') {
+      return localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
+    }
+    return 'light';
+  });
+
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+  }, [theme]);
+
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -43,6 +61,11 @@ export const Navbar = () => {
     {name: 'Video Editors', href: '/categories?category=video'},
     {name: 'SEO Tools', href: '/categories?category=seo'},
   ];
+
+  const toggleTheme = () => {
+    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
+  };
+
 
   return (
     <header className="sticky top-0 bg-background z-50 shadow-md border-b">
@@ -88,7 +111,7 @@ export const Navbar = () => {
            <Button
              variant="ghost"
              size="icon"
-             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+             onClick={toggleTheme}
            >
              {theme === "dark" ? <Sun className="h-5 w-5 text-foreground cursor-pointer"/> :
                <Moon className="h-5 w-5 text-foreground cursor-pointer"/>}
