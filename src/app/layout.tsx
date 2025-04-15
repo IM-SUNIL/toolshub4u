@@ -5,7 +5,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { Navbar } from '@/components/navbar';
+
 
 const inter = Inter({
   variable: '--font-inter',
@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} font-sans antialiased`}>
-        <Navbar />
+        
         <div className="md:hidden container mx-auto px-4 py-3">
           <div className="relative">
             <Input
