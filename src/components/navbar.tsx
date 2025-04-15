@@ -8,7 +8,7 @@ import {Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTri
 import {useRouter} from "next/navigation";
 import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
 import {Button} from "@/components/ui/button";
-import {useTheme} from 'next-themes';
+import {useTheme} from 'next-themes'; // Correct import
 import {Sun, Moon} from 'lucide-react';
 import {Switch} from "@/components/ui/switch";
 
@@ -58,7 +58,7 @@ export const Navbar = () => {
             <Input
               type="search"
               placeholder="Search tools, categories..."
-              className="w-full rounded-full py-2 px-4 shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 md:text-sm hover:shadow-lg transition-shadow duration-200"
+              className="w-full rounded-full py-2 px-4 shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 md:text-sm hover:shadow-md transition-shadow duration-200"
               ref={searchInputRef}
             />
             <div className="absolute inset-y-0 right-3 flex items-center">
@@ -89,8 +89,7 @@ export const Navbar = () => {
             id="dark-mode"
             checked={theme === 'dark'}
             onCheckedChange={(checked) => setTheme(checked ? 'dark' : 'light')}
-          >
-          </Switch>
+          />
           {theme === "dark" ? <Sun className="h-5 w-5 text-foreground cursor-pointer"/> :
             <Moon className="h-5 w-5 text-foreground cursor-pointer"/>}
         </div>
