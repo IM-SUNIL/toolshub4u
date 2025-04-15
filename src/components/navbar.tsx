@@ -64,7 +64,7 @@ export const Navbar = () => {
         </div>
 
         {/* Right Section: Categories, Top Rated, etc. (Collapsed on mobile) */}
-        <div className="hidden md:flex items-center space-x-4">
+        <div className="hidden md:flex items-center space-x-4 ml-auto">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost">
@@ -81,9 +81,7 @@ export const Navbar = () => {
           </DropdownMenu>
           <a href="/top-rated" className="text-foreground hover:underline">Top Rated</a>
           <a href="/new-additions" className="text-foreground hover:underline">New Additions</a>
-          <Button variant="outline" size="sm">Suggest a Tool</Button>
           <Settings className="h-5 w-5 text-foreground cursor-pointer"/>
-          <Button>Login/Sign Up</Button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -111,8 +109,6 @@ export const Navbar = () => {
               <a href="/top-rated" className="block py-2 text-foreground hover:underline">Top Rated</a>
               <a href="/new-additions" className="block py-2 text-foreground hover:underline">New
                 Additions</a>
-              <Button variant="outline" className="w-full justify-center">Suggest a Tool</Button>
-              <Button className="w-full justify-center">Login/Sign Up</Button>
             </SheetContent>
           </Sheet>
         </div>
@@ -137,3 +133,4 @@ export const Navbar = () => {
     </header>
   );
 };
+
