@@ -106,8 +106,8 @@ export const Navbar = () => {
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
-          <a href="/top-rated" className="text-foreground hover:underline">Top Rated</a>
-          <a href="/new-additions" className="text-foreground hover:underline">New Additions</a>
+          <a href="/about" className="text-foreground hover:underline">About Us</a>
+          <a href="/contact" className="text-foreground hover:underline">Contact Us</a>
            <Button
              variant="ghost"
              size="icon"
@@ -140,9 +140,8 @@ export const Navbar = () => {
                   {link.name}
                 </a>
               ))}
-              <a href="/top-rated" className="block py-2 text-foreground hover:underline">Top Rated</a>
-              <a href="/new-additions" className="block py-2 text-foreground hover:underline">New
-                Additions</a>
+              <a href="/about" className="block py-2 text-foreground hover:underline">About Us</a>
+              <a href="/contact" className="block py-2 text-foreground hover:underline">Contact Us</a>
             </SheetContent>
           </Sheet>
         </div>
