@@ -13,7 +13,7 @@ export const Navbar = () => {
         <a href="/" className="text-2xl font-semibold text-foreground title-animation">
           ToolsHub4U
         </a>
-        <div className="w-full max-w-sm">
+        <div className="w-full max-w-sm mx-4">
           <Input
             type="search"
             placeholder="Search for tools..."
