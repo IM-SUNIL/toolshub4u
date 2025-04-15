@@ -65,7 +65,7 @@ export const Navbar = () => {
             <Input
               type="search"
               placeholder="Search for tools..."
-              className="w-full rounded-full py-2 px-4 shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring transition-shadow hover:shadow-lg text-sm"
+              className="w-full rounded-full py-2 px-4 shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 md:text-sm"
             />
             <div className="absolute inset-y-0 right-3 flex items-center">
               <Search className="h-4 w-4 text-muted-foreground"/>
