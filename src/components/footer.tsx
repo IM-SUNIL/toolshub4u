@@ -6,7 +6,7 @@ export const Footer = () => {
     <footer className="bg-secondary text-secondary-foreground py-4">
       <div className="container mx-auto px-4 text-center">
         <p>
-          Made with ❤️ by ToolScout
+          Made with ❤️ by ToolHub4U
         </p>
         <nav className="mt-2">
           <a href="#" className="text-secondary-foreground hover:underline mx-2">
@@ -23,3 +23,4 @@ export const Footer = () => {
     </footer>
   );
 };
+

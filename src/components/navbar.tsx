@@ -7,10 +7,10 @@ import {Input} from "@/components/ui/input";
 
 export const Navbar = () => {
   return (
-    <header className="sticky top-0 bg-background z-50 shadow-sm border-b">
+    <header className="sticky top-0 bg-background z-50 shadow-md border-b">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <a href="/" className="text-2xl font-semibold text-foreground">
-          ToolScout
+          ToolHub4U
         </a>
         <div className="w-full max-w-md">
           <Input
@@ -32,3 +32,4 @@ export const Navbar = () => {
     </header>
   );
 };
+
