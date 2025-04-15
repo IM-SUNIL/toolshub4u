@@ -1,7 +1,6 @@
 'use client';
 
 import React, {useState, useEffect} from 'react';
-import {Button} from '@/components/ui/button';
 import {Settings} from 'lucide-react';
 import {Input} from "@/components/ui/input";
 import './navbar.css';
@@ -38,9 +37,7 @@ export const Navbar = () => {
         <div className="md:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu className="h-5 w-5"/>
-              </Button>
+              <Menu className="h-5 w-5"/>
             </SheetTrigger>
             <SheetContent side="right" className="w-full sm:w-3/4 md:w-2/3">
               <SheetHeader>
@@ -55,9 +52,7 @@ export const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center space-x-4">
-          <Button size="sm" onClick={() => router.push('/categories')}>
-            Categories
-          </Button>
+          <a href="/categories" className="text-foreground hover:underline">Categories</a>
         </div>
       </div>
     </header>
