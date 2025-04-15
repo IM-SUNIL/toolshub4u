@@ -1,9 +1,10 @@
+'use client';
 
 import React from 'react';
-import {Navbar} from "@/components/navbar";
-import {SearchBar} from "@/components/search-bar";
-import {CategoryGrid} from "@/components/category-grid";
-import {Footer} from "@/components/footer";
+import {Navbar} from '@/components/navbar';
+import {Footer} from '@/components/footer';
+import {Button} from '@/components/ui/button';
+import {FreeToolsGrid} from '@/components/free-tools-grid';
 
 export default function Home() {
   return (
@@ -11,10 +12,15 @@ export default function Home() {
       <Navbar/>
       <main className="flex-grow py-6 md:py-12">
         <div className="container mx-auto px-4">
-          <SearchBar/>
-          <section className="mt-12">
-            <h2 className="text-2xl font-semibold mb-6">Categories</h2>
-            <CategoryGrid/>
+          <div className="flex justify-center mt-6">
+            <Button variant="outline">
+              <span className="mr-2">✦</span>
+              Free Tools
+            </Button>
+          </div>
+          <section className="mt-12 text-center">
+            <h1 className="text-3xl font-semibold mb-6">Explore Free AI Tools</h1>
+            <FreeToolsGrid/>
           </section>
         </div>
       </main>
@@ -22,4 +28,3 @@ export default function Home() {
     </div>
   );
 }
-

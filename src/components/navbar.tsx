@@ -1,5 +1,8 @@
+'use client';
 
 import React from 'react';
+import {Button} from '@/components/ui/button';
+import {Search} from 'lucide-react';
 
 export const Navbar = () => {
   return (
@@ -8,30 +11,32 @@ export const Navbar = () => {
         <a href="/" className="text-2xl font-semibold text-foreground">
           ToolScout
         </a>
-        <nav>
-          <ul className="flex space-x-6">
-            <li>
-              <a href="/" className="text-foreground hover:text-primary transition-colors duration-200">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="/categories" className="text-foreground hover:text-primary transition-colors duration-200">
-                Categories
-              </a>
-            </li>
-            <li>
-              <a href="/about" className="text-foreground hover:text-primary transition-colors duration-200">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="/contact" className="text-foreground hover:text-primary transition-colors duration-200">
-                Contact
-              </a>
-            </li>
-          </ul>
+        <nav className="flex items-center space-x-6">
+          <a href="/" className="text-foreground hover:text-primary transition-colors duration-200">
+            Home
+          </a>
+          <a href="/categories" className="text-foreground hover:text-primary transition-colors duration-200">
+            Categories
+          </a>
+          <a href="/about" className="text-foreground hover:text-primary transition-colors duration-200">
+            About
+          </a>
+          <a href="/contact" className="text-foreground hover:text-primary transition-colors duration-200">
+            Contact
+          </a>
         </nav>
+        <div className="flex items-center space-x-4">
+          <Button variant="ghost" size="icon">
+            <Search className="h-5 w-5"/>
+          </Button>
+          <Button variant="outline" size="sm">
+            Submit Tool
+          </Button>
+          <Button size="sm">Sign Up</Button>
+          <Button variant="link" size="sm">
+            Login
+          </Button>
+        </div>
       </div>
     </header>
   );
