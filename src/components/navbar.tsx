@@ -2,7 +2,7 @@
 
 import React, {useState, useEffect} from 'react';
 import {Button} from '@/components/ui/button';
-import {Search} from 'lucide-react';
+import {Search, Settings} from 'lucide-react';
 import {Input} from "@/components/ui/input";
 import './navbar.css';
 import {Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger} from "@/components/ui/sheet";
@@ -14,7 +14,7 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 400); // Adjust breakpoint as needed
+      setIsMobile(window.innerWidth < 470); // Adjust breakpoint as needed
     };
 
     handleResize();
@@ -32,12 +32,25 @@ export const Navbar = () => {
           ToolsHub4u
         </a>
 
+        <div className={`w-full max-w-sm mx-4 ${isMobile ? 'mb-2' : 'mb-0'}`}>
+          <div className="relative">
+            <Input
+              type="search"
+              placeholder="Search for tools..."
+              className="w-full rounded-full py-2 px-4 shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 md:text-sm hover:shadow-lg transition-shadow duration-200"
+            />
+            <div className="absolute inset-y-0 right-3 flex items-center">
+              <Search className="h-4 w-4 text-muted-foreground"/>
+            </div>
+          </div>
+        </div>
+
         {/* Mobile Menu Button */}
         <div className="md:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
-                <Menu className="h-5 w-5"/>
+                <Settings className="h-5 w-5"/>
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="w-full sm:w-3/4 md:w-2/3">
@@ -59,19 +72,6 @@ export const Navbar = () => {
             </SheetContent>
           </Sheet>
         </div>
-        
-        <div className={`w-full max-w-sm mx-4 ${isMobile ? 'mb-2' : 'mb-0'}`}>
-          <div className="relative">
-            <Input
-              type="search"
-              placeholder="Search for tools..."
-              className="w-full rounded-full py-2 px-4 shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 md:text-sm"
-            />
-            <div className="absolute inset-y-0 right-3 flex items-center">
-              <Search className="h-4 w-4 text-muted-foreground"/>
-            </div>
-          </div>
-        </div>
 
         <div className="hidden md:flex items-center space-x-4">
           <Button variant="outline" size="sm">
@@ -86,5 +86,3 @@ export const Navbar = () => {
     </header>
   );
 };
-
-
