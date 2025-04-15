@@ -14,7 +14,7 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 470); // Adjust breakpoint as needed
+      setIsMobile(window.innerWidth < 640); // Adjust breakpoint as needed
     };
 
     handleResize();
@@ -53,22 +53,14 @@ export const Navbar = () => {
                 <Settings className="h-5 w-5"/>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="w-full sm:w-3/4 md:w-2/3">
+            <SheetContent side="right" className="w-full sm:w-3/4 md:w-2/3">
               <SheetHeader>
                 <SheetTitle>Menu</SheetTitle>
                 <SheetDescription>
                   Explore ToolsHub4u
                 </SheetDescription>
               </SheetHeader>
-              <div className="flex flex-col space-y-2">
-                <Button variant="outline" size="sm">
-                  Submit Tool
-                </Button>
-                <Button size="sm">Sign Up</Button>
-                <Button variant="link" size="sm">
-                  Login
-                </Button>
-              </div>
+              {/*  REMOVED Buttons in Mobile Menu */}
             </SheetContent>
           </Sheet>
         </div>
@@ -86,3 +78,4 @@ export const Navbar = () => {
     </header>
   );
 };
+
