@@ -13,10 +13,23 @@ export const Navbar = () => {
 
   return (
     <header className="sticky top-0 bg-background z-50 shadow-md border-b">
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-        <a href="/" className="text-2xl font-semibold text-foreground title-animation">
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between flex-col md:flex-row">
+        <a href="/" className="text-2xl font-semibold text-foreground title-animation mb-2 md:mb-0">
           ToolsHub4u
         </a>
+
+        <div className="md:hidden w-full max-w-sm mx-4">
+          <div className="relative">
+            <Input
+              type="search"
+              placeholder="Search for tools..."
+              className="w-full rounded-full py-2 px-4 shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring transition-shadow hover:shadow-lg text-sm"
+            />
+            <div className="absolute inset-y-0 right-3 flex items-center">
+              <Search className="h-4 w-4 text-muted-foreground"/>
+            </div>
+          </div>
+        </div>
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
