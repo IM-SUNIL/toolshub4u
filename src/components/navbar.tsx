@@ -7,10 +7,12 @@ import {Input} from "@/components/ui/input";
 import './navbar.css';
 import {Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger} from "@/components/ui/sheet";
 import {Menu} from "lucide-react"
+import {useRouter} from "next/navigation";
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const handleResize = () => {
@@ -27,8 +29,8 @@ export const Navbar = () => {
 
   return (
     <header className="sticky top-0 bg-background z-50 shadow-md border-b">
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between flex-col md:flex-row">
-        <a href="/" className="text-2xl font-semibold text-foreground title-animation mb-2 md:mb-0">
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+        <a href="/" className="text-2xl font-semibold text-foreground title-animation">
           ToolsHub4u
         </a>
 
@@ -53,12 +55,8 @@ export const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center space-x-4">
-          <Button variant="outline" size="sm">
-            Submit Tool
-          </Button>
-          <Button size="sm">Sign Up</Button>
-          <Button variant="link" size="sm">
-            Login
+          <Button size="sm" onClick={() => router.push('/categories')}>
+            Categories
           </Button>
         </div>
       </div>
