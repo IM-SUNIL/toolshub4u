@@ -13,11 +13,11 @@ export const Navbar = () => {
         <a href="/" className="text-2xl font-semibold text-foreground title-animation">
           ToolsHub4U
         </a>
-        <div className="w-full max-w-md">
+        <div className="w-full max-w-sm">
           <Input
             type="search"
             placeholder="Search for tools..."
-            className="w-full rounded-full py-2 px-4 shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+            className="w-full rounded-full py-2 px-4 shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring transition-shadow hover:shadow-lg"
           />
         </div>
         <div className="flex items-center space-x-4">
@@ -33,4 +33,5 @@ export const Navbar = () => {
     </header>
   );
 };
+
 
