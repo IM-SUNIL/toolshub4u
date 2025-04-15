@@ -8,7 +8,7 @@ import {Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTri
 import {useRouter} from "next/navigation";
 import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
 import {Button} from "@/components/ui/button";
-import {useTheme} from 'next-themes'; // Correct import
+import {useTheme} from 'next-themes';
 import {Sun, Moon} from 'lucide-react';
 import {Switch} from "@/components/ui/switch";
 
@@ -85,13 +85,14 @@ export const Navbar = () => {
           </DropdownMenu>
           <a href="/top-rated" className="text-foreground hover:underline">Top Rated</a>
           <a href="/new-additions" className="text-foreground hover:underline">New Additions</a>
-          <Switch
-            id="dark-mode"
-            checked={theme === 'dark'}
-            onCheckedChange={(checked) => setTheme(checked ? 'dark' : 'light')}
-          />
-          {theme === "dark" ? <Sun className="h-5 w-5 text-foreground cursor-pointer"/> :
-            <Moon className="h-5 w-5 text-foreground cursor-pointer"/>}
+           <Button
+             variant="ghost"
+             size="icon"
+             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+           >
+             {theme === "dark" ? <Sun className="h-5 w-5 text-foreground cursor-pointer"/> :
+               <Moon className="h-5 w-5 text-foreground cursor-pointer"/>}
+           </Button>
         </div>
 
         {/* Mobile Menu Button */}
