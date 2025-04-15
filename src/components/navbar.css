@@ -1,0 +1,21 @@
+
+@keyframes moveGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.title-animation {
+    background: linear-gradient(270deg, #008080, #F5F5DC, #008080);
+    background-size: 600% 600%;
+    color: black;
+    animation: moveGradient 10s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
