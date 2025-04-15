@@ -1,19 +1,23 @@
 'use client';
 
 import React, {useState, useEffect, useRef} from 'react';
-import {Settings, Search, Menu} from 'lucide-react';
+import {Search, Menu} from 'lucide-react';
 import {Input} from "@/components/ui/input";
 import './navbar.css';
 import {Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger} from "@/components/ui/sheet";
 import {useRouter} from "next/navigation";
 import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
 import {Button} from "@/components/ui/button";
+import {useTheme} from 'next-themes';
+import {Sun, Moon} from 'lucide-react';
+import {Switch} from "@/components/ui/switch";
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const router = useRouter();
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const {setTheme, theme} = useTheme();
 
   useEffect(() => {
     const handleResize = () => {
@@ -81,7 +85,14 @@ export const Navbar = () => {
           </DropdownMenu>
           <a href="/top-rated" className="text-foreground hover:underline">Top Rated</a>
           <a href="/new-additions" className="text-foreground hover:underline">New Additions</a>
-          <Settings className="h-5 w-5 text-foreground cursor-pointer"/>
+          <Switch
+            id="dark-mode"
+            checked={theme === 'dark'}
+            onCheckedChange={(checked) => setTheme(checked ? 'dark' : 'light')}
+          >
+          </Switch>
+          {theme === "dark" ? <Sun className="h-5 w-5 text-foreground cursor-pointer"/> :
+            <Moon className="h-5 w-5 text-foreground cursor-pointer"/>}
         </div>
 
         {/* Mobile Menu Button */}
@@ -113,24 +124,6 @@ export const Navbar = () => {
           </Sheet>
         </div>
       </div>
-
-      {/* Search Bar for Mobile (appears below the NavBar) */}
-      {isMobile && (
-        <div className="container mx-auto px-4 py-3">
-          <div className="relative">
-            <Input
-              type="search"
-              placeholder="Search tools, categories..."
-              className="w-full rounded-full py-2 px-4 shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 md:text-sm hover:shadow-lg transition-shadow duration-200"
-              ref={searchInputRef}
-            />
-            <div className="absolute inset-y-0 right-3 flex items-center">
-              <Search className="h-4 w-4 text-muted-foreground cursor-pointer" onClick={handleSearchClick}/>
-            </div>
-          </div>
-        </div>
-      )}
     </header>
   );
 };
-
