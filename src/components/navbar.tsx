@@ -7,7 +7,6 @@ import './navbar.css';
 import {Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger} from "@/components/ui/sheet";
 import {useRouter} from "next/navigation";
 import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
-import {Button} from "@/components/ui/button";
 import {Sun, Moon} from 'lucide-react';
 import {cn} from "@/lib/utils";
 
@@ -54,6 +53,34 @@ const tools = [
     id: 'adobe-premiere-pro',
     category: 'video'
   },
+  {
+    name: 'Final Cut Pro',
+    description: 'A professional non-linear video editing application.',
+    tags: ['video', 'paid', 'editing'],
+    id: 'final-cut-pro',
+    category: 'video'
+  },
+  {
+    name: 'Google Analytics',
+    description: 'A web analytics service that tracks and reports website traffic.',
+    tags: ['analytics', 'free', 'marketing'],
+    id: 'google-analytics',
+    category: 'seo'
+  },
+  {
+    name: 'Sketch',
+    description: 'A vector graphics editor for macOS, primarily used for UI and UX design.',
+    tags: ['design', 'paid', 'ui/ux'],
+    id: 'sketch',
+    category: 'design'
+  },
+  {
+    name: 'ChatGPT',
+    description: 'A conversational AI that can generate human-like text for various applications.',
+    tags: ['ai', 'conversational', 'free'],
+    id: 'chatgpt',
+    category: 'ai'
+  }
 ];
 
 export const Navbar = () => {
@@ -87,7 +114,7 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 700);
+      setIsMobile(window.innerWidth < 640);
     };
 
     handleResize();
@@ -223,14 +250,15 @@ export const Navbar = () => {
             href="/contact"
             className="text-foreground transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
           >Contact Us</a>
-          <Button
+          <button
             variant="ghost"
             size="icon"
+            className="text-foreground transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
             onClick={toggleTheme}
           >
             {theme === "dark" ? <Sun className="h-5 w-5 text-foreground cursor-pointer"/> :
               <Moon className="h-5 w-5 text-foreground cursor-pointer"/>}
-          </Button>
+          </button>
         </div>
 
 
@@ -258,14 +286,15 @@ export const Navbar = () => {
               ))}
               <a href="/about" className="block py-2 text-foreground hover:underline">About Us</a>
               <a href="/contact" className="block py-2 text-foreground hover:underline">Contact Us</a>
-          <Button
+          <button
             variant="ghost"
             size="icon"
+            className="text-foreground transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
             onClick={toggleTheme}
           >
             {theme === "dark" ? <Sun className="h-5 w-5 text-foreground cursor-pointer"/> :
               <Moon className="h-5 w-5 text-foreground cursor-pointer"/>}
-          </Button>
+          </button>
             </SheetContent>
           </Sheet>
         </div>
