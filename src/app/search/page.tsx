@@ -11,24 +11,42 @@ const tools = [
     description: 'An AI-powered writing assistant that helps you improve your grammar, spelling, and style.',
     tags: ['ai', 'writing', 'free'],
     id: 'grammarly',
+    category: 'ai'
   },
   {
     name: 'Adobe Acrobat PDF Editor',
     description: 'A comprehensive PDF editor to create, convert, edit, and sign PDF documents.',
     tags: ['pdf', 'paid', 'editing'],
     id: 'adobe-acrobat',
+    category: 'pdf'
   },
   {
     name: 'Canva',
     description: 'A graphic design platform that allows users to create social media graphics, presentations, posters, and other visual content.',
     tags: ['design', 'free', 'marketing'],
     id: 'canva',
+    category: 'design'
   },
   {
     name: 'SEMrush',
     description: 'An online visibility management and content marketing platform.',
     tags: ['seo', 'paid', 'marketing'],
     id: 'semrush',
+    category: 'seo'
+  },
+  {
+    name: 'Kickresume',
+    description: 'A resume builder platform with pre-designed templates and AI writing assistance.',
+    tags: ['resume', 'free', 'ai'],
+    id: 'kickresume',
+    category: 'resume'
+  },
+  {
+    name: 'Adobe Premiere Pro',
+    description: 'A timeline-based video editing software application.',
+    tags: ['video', 'paid', 'editing'],
+    id: 'adobe-premiere-pro',
+    category: 'video'
   },
 ];
 

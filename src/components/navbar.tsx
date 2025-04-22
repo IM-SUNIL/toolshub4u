@@ -17,24 +17,42 @@ const tools = [
     description: 'An AI-powered writing assistant that helps you improve your grammar, spelling, and style.',
     tags: ['ai', 'writing', 'free'],
     id: 'grammarly',
+    category: 'ai'
   },
   {
     name: 'Adobe Acrobat PDF Editor',
     description: 'A comprehensive PDF editor to create, convert, edit, and sign PDF documents.',
     tags: ['pdf', 'paid', 'editing'],
     id: 'adobe-acrobat',
+    category: 'pdf'
   },
   {
     name: 'Canva',
     description: 'A graphic design platform that allows users to create social media graphics, presentations, posters, and other visual content.',
     tags: ['design', 'free', 'marketing'],
     id: 'canva',
+    category: 'design'
   },
   {
     name: 'SEMrush',
     description: 'An online visibility management and content marketing platform.',
     tags: ['seo', 'paid', 'marketing'],
     id: 'semrush',
+    category: 'seo'
+  },
+  {
+    name: 'Kickresume',
+    description: 'A resume builder platform with pre-designed templates and AI writing assistance.',
+    tags: ['resume', 'free', 'ai'],
+    id: 'kickresume',
+    category: 'resume'
+  },
+  {
+    name: 'Adobe Premiere Pro',
+    description: 'A timeline-based video editing software application.',
+    tags: ['video', 'paid', 'editing'],
+    id: 'adobe-premiere-pro',
+    category: 'video'
   },
 ];
 
@@ -90,6 +108,7 @@ export const Navbar = () => {
     {name: 'PDF Tools', href: '/categories?category=pdf'},
     {name: 'Video Editors', href: '/categories?category=video'},
     {name: 'SEO Tools', href: '/categories?category=seo'},
+    {name: 'Design Tools', href: '/categories?category=design'},
   ];
 
   const toggleTheme = () => {
@@ -121,6 +140,17 @@ export const Navbar = () => {
       router.push(`/search?query=${searchTerm}`);
     }
   };
+  const getCategoryTools = (category: string) => {
+    return tools.filter(tool => tool.category === category);
+  };
+  const handleCategoryMouseEnter = () => {
+    setIsDropdownOpen(true);
+  };
+
+  const handleCategoryMouseLeave = () => {
+    setIsDropdownOpen(false);
+  };
+
 
   return (
     <header className="sticky top-0 bg-background z-50 shadow-md border-b">
@@ -171,14 +201,14 @@ export const Navbar = () => {
             <DropdownMenu open={isDropdownOpen} onOpenChange={setIsDropdownOpen}>
               <DropdownMenuTrigger
                   className="text-foreground transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
-                  onMouseEnter={() => setIsDropdownOpen(true)}
-                  onMouseLeave={() => setIsDropdownOpen(false)}
+                  onMouseEnter={handleCategoryMouseEnter}
+                  onMouseLeave={handleCategoryMouseLeave}
               >
                 Categories
               </DropdownMenuTrigger>
               <DropdownMenuContent
-                  onMouseEnter={() => setIsDropdownOpen(true)}
-                  onMouseLeave={() => setIsDropdownOpen(false)}
+                  onMouseEnter={handleCategoryMouseEnter}
+                  onMouseLeave={handleCategoryMouseLeave}
               >
                 {categoryLinks.map(link => (
                   <DropdownMenuItem key={link.name}><a href={link.href}>{link.name}</a></DropdownMenuItem>

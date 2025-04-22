@@ -7,27 +7,43 @@ import {useRouter} from "next/navigation";
 import {cn} from "@/lib/utils";
 
 const tools = [
-  {
-    name: 'Tool Name 1',
-    description: 'A short description of the tool.',
-    tags: ['ai', 'free'],
-  },
-  {
-    name: 'Tool Name 2',
-    description: 'A short description of the tool.',
-    tags: ['pdf', 'paid'],
-  },
-  {
-    name: 'Tool Name 3',
-    description: 'A short description of the tool.',
-    tags: ['resume', 'free'],
-  },
-  {
-    name: 'Tool Name 4',
-    description: 'A short description of the tool.',
-    tags: ['seo', 'paid'],
-  },
-];
+    {
+      name: 'Grammarly',
+      description: 'An AI-powered writing assistant that helps you improve your grammar, spelling, and style.',
+      tags: ['ai', 'writing', 'free'],
+      category: 'ai'
+    },
+    {
+      name: 'Adobe Acrobat PDF Editor',
+      description: 'A comprehensive PDF editor to create, convert, edit, and sign PDF documents.',
+      tags: ['pdf', 'paid', 'editing'],
+      category: 'pdf'
+    },
+    {
+      name: 'Canva',
+      description: 'A graphic design platform that allows users to create social media graphics, presentations, posters, and other visual content.',
+      tags: ['design', 'free', 'marketing'],
+      category: 'design'
+    },
+    {
+      name: 'SEMrush',
+      description: 'An online visibility management and content marketing platform.',
+      tags: ['seo', 'paid', 'marketing'],
+      category: 'seo'
+    },
+    {
+      name: 'Kickresume',
+      description: 'A resume builder platform with pre-designed templates and AI writing assistance.',
+      tags: ['resume', 'free', 'ai'],
+      category: 'resume'
+    },
+    {
+      name: 'Adobe Premiere Pro',
+      description: 'A timeline-based video editing software application.',
+      tags: ['video', 'paid', 'editing'],
+      category: 'video'
+    },
+  ];
 
 export const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
