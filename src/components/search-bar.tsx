@@ -92,4 +92,3 @@ export const SearchBar = () => {
     </form>
   );
 };
-
