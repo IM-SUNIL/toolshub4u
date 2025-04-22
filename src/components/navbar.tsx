@@ -90,13 +90,13 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {/* Right Section: Categories, Top Rated, etc. (Collapsed on mobile) */}
+        {/* Right Section: Categories, About Us, Contact Us, and Dark Mode Toggle */}
         <div className="hidden md:flex items-center space-x-4 ml-auto">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost">
+              <a className="text-foreground hover:underline cursor-pointer">
                 Categories
-              </Button>
+              </a>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56">
               {categoryLinks.map(link => (
@@ -108,15 +108,16 @@ export const Navbar = () => {
           </DropdownMenu>
           <a href="/about" className="text-foreground hover:underline">About Us</a>
           <a href="/contact" className="text-foreground hover:underline">Contact Us</a>
-           <Button
-             variant="ghost"
-             size="icon"
-             onClick={toggleTheme}
-           >
-             {theme === "dark" ? <Sun className="h-5 w-5 text-foreground cursor-pointer"/> :
-               <Moon className="h-5 w-5 text-foreground cursor-pointer"/>}
-           </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleTheme}
+          >
+            {theme === "dark" ? <Sun className="h-5 w-5 text-foreground cursor-pointer"/> :
+              <Moon className="h-5 w-5 text-foreground cursor-pointer"/>}
+          </Button>
         </div>
+
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
