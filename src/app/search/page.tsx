@@ -7,28 +7,28 @@ import {Footer} from "@/components/footer";
 
 const tools = [
   {
-    name: 'Tool Name 1',
-    description: 'A short description of the tool.',
-    tags: ['ai', 'free'],
-    id: 'tool-1',
+    name: 'Grammarly',
+    description: 'An AI-powered writing assistant that helps you improve your grammar, spelling, and style.',
+    tags: ['ai', 'writing', 'free'],
+    id: 'grammarly',
   },
   {
-    name: 'Tool Name 2',
-    description: 'A short description of the tool.',
-    tags: ['pdf', 'paid'],
-    id: 'tool-2',
+    name: 'Adobe Acrobat PDF Editor',
+    description: 'A comprehensive PDF editor to create, convert, edit, and sign PDF documents.',
+    tags: ['pdf', 'paid', 'editing'],
+    id: 'adobe-acrobat',
   },
   {
-    name: 'Tool Name 3',
-    description: 'A short description of the tool.',
-    tags: ['resume', 'free'],
-    id: 'tool-3',
+    name: 'Canva',
+    description: 'A graphic design platform that allows users to create social media graphics, presentations, posters, and other visual content.',
+    tags: ['design', 'free', 'marketing'],
+    id: 'canva',
   },
   {
-    name: 'Tool Name 4',
-    description: 'A short description of the tool.',
-    tags: ['seo', 'paid'],
-    id: 'tool-4',
+    name: 'SEMrush',
+    description: 'An online visibility management and content marketing platform.',
+    tags: ['seo', 'paid', 'marketing'],
+    id: 'semrush',
   },
 ];
 

@@ -5,36 +5,36 @@ import {useRouter} from 'next/navigation';
 
 const tools = [
   {
-    name: 'Tool Name 1',
-    description: 'A short description of the tool.',
+    name: 'Grammarly',
+    description: 'An AI-powered writing assistant that helps you improve your grammar, spelling, and style.',
     pricing: 'Free',
     rating: 4.5,
-    thumbnail: 'https://picsum.photos/200/150', // Placeholder image
-    id: 'tool-1',
+    thumbnail: 'https://picsum.photos/200/150',
+    id: 'grammarly',
   },
   {
-    name: 'Tool Name 2',
-    description: 'A short description of the tool.',
+    name: 'Adobe Acrobat PDF Editor',
+    description: 'A comprehensive PDF editor to create, convert, edit, and sign PDF documents.',
     pricing: 'Paid',
     rating: 3.8,
-    thumbnail: 'https://picsum.photos/200/150', // Placeholder image
-    id: 'tool-2',
+    thumbnail: 'https://picsum.photos/200/150',
+    id: 'adobe-acrobat',
   },
   {
-    name: 'Tool Name 3',
-    description: 'A short description of the tool.',
+    name: 'Canva',
+    description: 'A graphic design platform that allows users to create social media graphics, presentations, posters, and other visual content.',
     pricing: 'Free',
     rating: 4.2,
-    thumbnail: 'https://picsum.photos/200/150', // Placeholder image
-    id: 'tool-3',
+    thumbnail: 'https://picsum.photos/200/150',
+    id: 'canva',
   },
   {
-    name: 'Tool Name 4',
-    description: 'A short description of the tool.',
+    name: 'SEMrush',
+    description: 'An online visibility management and content marketing platform.',
     pricing: 'Paid',
     rating: 4.7,
-    thumbnail: 'https://picsum.photos/200/150', // Placeholder image
-    id: 'tool-4',
+    thumbnail: 'https://picsum.photos/200/150',
+    id: 'semrush',
   },
 ];
 
@@ -74,5 +74,3 @@ export const ToolGrid = () => {
     </div>
   );
 };
-
-    
