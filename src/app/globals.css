@@ -81,5 +81,19 @@ body {
   }
 }
 
+/* Hide clear button in input (light mode) */
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  height: 0;
+  width: 0;
+}
+
+/* Hide clear button in input (dark mode) */
+.dark input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  height: 0;
+  width: 0;
+}
     
+
 
