@@ -1,7 +1,7 @@
 'use client';
 
 import React, {useState, useEffect, useRef} from 'react';
-import {Search, Menu} from 'lucide-react';
+import {Search, Menu, ChevronDown} from 'lucide-react';
 import {Input} from "@/components/ui/input";
 import './navbar.css';
 import {Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger} from "@/components/ui/sheet";
@@ -9,6 +9,7 @@ import {useRouter} from "next/navigation";
 import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
 import {Sun, Moon} from 'lucide-react';
 import {cn} from "@/lib/utils";
+import {Button} from "@/components/ui/button";
 
 const tools = [
   {
@@ -95,6 +96,7 @@ export const Navbar = () => {
     return 'light';
   });
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
 
 
   useEffect(() => {
@@ -114,7 +116,7 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 640);
+      setIsMobile(window.innerWidth < 700);
     };
 
     handleResize();
@@ -178,6 +180,9 @@ export const Navbar = () => {
     setIsDropdownOpen(false);
   };
 
+  const handleCategoryClick = () => {
+    setIsCategoryDropdownOpen(!isCategoryDropdownOpen);
+  };
 
   return (
     <header className="sticky top-0 bg-background z-50 shadow-md border-b">
@@ -268,33 +273,42 @@ export const Navbar = () => {
             <SheetTrigger asChild>
               <Menu className="h-5 w-5"/>
             </SheetTrigger>
-            <SheetContent side="right" className="w-full sm:w-3/4 md:w-2/3">
-              <SheetHeader>
-                <SheetTitle>Menu</SheetTitle>
-                <SheetDescription>
-                  Explore ToolsHub4u
-                </SheetDescription>
-              </SheetHeader>
-              {categoryLinks.map(link => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="block py-2 text-foreground hover:underline"
+            <SheetContent side="right" className="w-full sm:w-3/4 md:w-2/3 flex flex-col justify-between">
+              <div>
+                <SheetHeader>
+                  <SheetTitle>Menu</SheetTitle>
+                  <SheetDescription>
+                    Explore ToolsHub4u
+                  </SheetDescription>
+                </SheetHeader>
+                <DropdownMenu open={isCategoryDropdownOpen} onOpenChange={setIsCategoryDropdownOpen}>
+                  <DropdownMenuTrigger
+                    className="block py-2 text-foreground hover:underline"
+                    onClick={handleCategoryClick}
+                  >
+                    Categories
+                    <ChevronDown className="inline-block ml-1 w-4 h-4"/>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    {categoryLinks.map(link => (
+                      <DropdownMenuItem key={link.name}><a href={link.href}>{link.name}</a></DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+                <a href="/about" className="block py-2 text-foreground hover:underline">About Us</a>
+                <a href="/contact" className="block py-2 text-foreground hover:underline">Contact Us</a>
+              </div>
+              <div className="flex justify-center pb-4">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-foreground transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
+                  onClick={toggleTheme}
                 >
-                  {link.name}
-                </a>
-              ))}
-              <a href="/about" className="block py-2 text-foreground hover:underline">About Us</a>
-              <a href="/contact" className="block py-2 text-foreground hover:underline">Contact Us</a>
-          <button
-            variant="ghost"
-            size="icon"
-            className="text-foreground transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
-            onClick={toggleTheme}
-          >
-            {theme === "dark" ? <Sun className="h-5 w-5 text-foreground cursor-pointer"/> :
-              <Moon className="h-5 w-5 text-foreground cursor-pointer"/>}
-          </button>
+                  {theme === "dark" ? <Sun className="h-5 w-5 text-foreground cursor-pointer"/> :
+                    <Moon className="h-5 w-5 text-foreground cursor-pointer"/>}
+                </Button>
+              </div>
             </SheetContent>
           </Sheet>
         </div>
