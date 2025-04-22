@@ -94,7 +94,7 @@ export const Navbar = () => {
         <div className="hidden md:flex items-center space-x-4 ml-auto">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <a className="text-foreground transition-brightness hover:brightness-125">
+              <a className="text-foreground transition-brightness hover:brightness-125 cursor-pointer">
                 Categories
               </a>
             </DropdownMenuTrigger>
