@@ -1,0 +1,91 @@
+'use client';
+
+import React from 'react';
+import {useSearchParams} from 'next/navigation';
+import {Navbar} from "@/components/navbar";
+import {Footer} from "@/components/footer";
+
+const tools = [
+  {
+    name: 'Tool Name 1',
+    description: 'A short description of the tool.',
+    tags: ['ai', 'free'],
+    id: 'tool-1',
+  },
+  {
+    name: 'Tool Name 2',
+    description: 'A short description of the tool.',
+    tags: ['pdf', 'paid'],
+    id: 'tool-2',
+  },
+  {
+    name: 'Tool Name 3',
+    description: 'A short description of the tool.',
+    tags: ['resume', 'free'],
+    id: 'tool-3',
+  },
+  {
+    name: 'Tool Name 4',
+    description: 'A short description of the tool.',
+    tags: ['seo', 'paid'],
+    id: 'tool-4',
+  },
+];
+
+export default function SearchResultsPage() {
+  const searchParams = useSearchParams();
+  const query = searchParams.get('query') || '';
+
+  const filteredTools = tools.filter(tool =>
+    tool.name.toLowerCase().includes(query.toLowerCase()) ||
+    tool.tags.some(tag => tag.toLowerCase().includes(query.toLowerCase()))
+  );
+
+  return (
+    <div className="flex flex-col min-h-screen bg-background">
+      <Navbar/>
+      <main className="flex-grow py-6 md:py-12">
+        <div className="container mx-auto px-4">
+          <h1 className="text-3xl font-semibold mb-6">Search Results for "{query}"</h1>
+          {filteredTools.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredTools.map((tool) => (
+                <div
+                  key={tool.id}
+                  className="bg-card rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+                  onClick={() => {
+                    // Replace with your tool detail page route
+                    window.location.href = `/tool/${tool.id}`;
+                  }}
+                >
+                  <div className="p-4">
+                    <h3 className="text-xl font-semibold text-foreground mb-2">{tool.name}</h3>
+                    <p className="text-muted-foreground">{tool.description}</p>
+                    <div className="mt-3 flex items-center justify-between">
+                      <div className="flex items-center">
+                        {tool.tags.map((tag, index) => (
+                          <span
+                            key={index}
+                            className="px-2 py-1 mr-1 rounded-full text-xs font-semibold bg-secondary text-secondary-foreground"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <button className="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/80 transition-colors">
+                        View Details
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p className="text-muted-foreground">No tools found matching your query.</p>
+          )}
+        </div>
+      </main>
+      <Footer/>
+    </div>
+  );
+}
