@@ -167,7 +167,14 @@ export const Navbar = () => {
 
         {/* Right Section: Categories, About Us, Contact Us, and Dark Mode Toggle */}
         <div className="hidden md:flex items-center space-x-4 ml-auto">
-
+            <DropdownMenu>
+              <DropdownMenuTrigger className="text-foreground transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200">Categories</DropdownMenuTrigger>
+              <DropdownMenuContent>
+                {categoryLinks.map(link => (
+                  <DropdownMenuItem key={link.name}><a href={link.href}>{link.name}</a></DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           <a
             href="/about"
             className="text-foreground transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
@@ -211,6 +218,14 @@ export const Navbar = () => {
               ))}
               <a href="/about" className="block py-2 text-foreground hover:underline">About Us</a>
               <a href="/contact" className="block py-2 text-foreground hover:underline">Contact Us</a>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleTheme}
+          >
+            {theme === "dark" ? <Sun className="h-5 w-5 text-foreground cursor-pointer"/> :
+              <Moon className="h-5 w-5 text-foreground cursor-pointer"/>}
+          </Button>
             </SheetContent>
           </Sheet>
         </div>
