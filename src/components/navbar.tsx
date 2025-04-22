@@ -67,7 +67,7 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 640);
+      setIsMobile(window.innerWidth < 700);
     };
 
     handleResize();
@@ -167,28 +167,7 @@ export const Navbar = () => {
 
         {/* Right Section: Categories, About Us, Contact Us, and Dark Mode Toggle */}
         <div className="hidden md:flex items-center space-x-4 ml-auto">
-          <DropdownMenu open={isCategoriesOpen} onOpenChange={setIsCategoriesOpen}>
-            <DropdownMenuTrigger asChild>
-              <a
-                className="text-foreground transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
-                onMouseEnter={() => setIsCategoriesOpen(true)}
-                onMouseLeave={() => setIsCategoriesOpen(false)}
-              >
-                Categories
-              </a>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent
-              className="w-56"
-              onMouseEnter={() => setIsCategoriesOpen(true)}
-              onMouseLeave={() => setIsCategoriesOpen(false)}
-            >
-              {categoryLinks.map(link => (
-                <DropdownMenuItem key={link.name} onClick={() => router.push(link.href)}>
-                  {link.name}
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
+
           <a
             href="/about"
             className="text-foreground transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
@@ -221,38 +200,6 @@ export const Navbar = () => {
                   Explore ToolsHub4u
                 </SheetDescription>
               </SheetHeader>
-              <form onSubmit={handleSubmit} className="relative w-full">
-                <Input
-                  type="search"
-                  placeholder="Search tools, categories..."
-                  className="w-full rounded-full py-2 px-4 shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 md:text-sm hover:shadow-md transition-shadow duration-200"
-                  ref={searchInputRef}
-                  value={searchTerm}
-                  onChange={handleSearch}
-                />
-                <div className="absolute inset-y-0 right-3 flex items-center">
-                  <button type="submit" className="p-2 rounded-full hover:bg-accent transition-colors">
-                    <Search className="h-4 w-4 text-muted-foreground cursor-pointer" onClick={handleSearchClick}/>
-                  </button>
-                </div>
-                {suggestions.length > 0 && (
-                  <ul className="absolute left-0 mt-2 w-full bg-popover border border-border rounded-md shadow-md z-10">
-                    {suggestions.map((suggestion, index) => (
-                      <li
-                        key={index}
-                        className="px-4 py-2 text-sm text-popover-foreground hover:bg-accent hover:text-accent-foreground cursor-pointer transition-colors"
-                        onClick={() => {
-                          setSearchTerm(suggestion);
-                          setSuggestions([]);
-                          router.push(`/search?query=${suggestion}`);
-                        }}
-                      >
-                        {suggestion}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </form>
               {categoryLinks.map(link => (
                 <a
                   key={link.name}
