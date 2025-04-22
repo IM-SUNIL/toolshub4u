@@ -49,6 +49,8 @@ export const Navbar = () => {
     }
     return 'light';
   });
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
 
   useEffect(() => {
     if (typeof document !== 'undefined') {
@@ -119,7 +121,6 @@ export const Navbar = () => {
       router.push(`/search?query=${searchTerm}`);
     }
   };
-  const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
 
   return (
     <header className="sticky top-0 bg-background z-50 shadow-md border-b">
@@ -167,9 +168,18 @@ export const Navbar = () => {
 
         {/* Right Section: Categories, About Us, Contact Us, and Dark Mode Toggle */}
         <div className="hidden md:flex items-center space-x-4 ml-auto">
-            <DropdownMenu>
-              <DropdownMenuTrigger className="text-foreground transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200">Categories</DropdownMenuTrigger>
-              <DropdownMenuContent>
+            <DropdownMenu open={isDropdownOpen} onOpenChange={setIsDropdownOpen}>
+              <DropdownMenuTrigger
+                  className="text-foreground transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
+                  onMouseEnter={() => setIsDropdownOpen(true)}
+                  onMouseLeave={() => setIsDropdownOpen(false)}
+              >
+                Categories
+              </DropdownMenuTrigger>
+              <DropdownMenuContent
+                  onMouseEnter={() => setIsDropdownOpen(true)}
+                  onMouseLeave={() => setIsDropdownOpen(false)}
+              >
                 {categoryLinks.map(link => (
                   <DropdownMenuItem key={link.name}><a href={link.href}>{link.name}</a></DropdownMenuItem>
                 ))}
