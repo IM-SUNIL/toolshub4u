@@ -66,6 +66,7 @@ export const Navbar = () => {
     setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
   };
 
+  const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
 
   return (
     <header className="sticky top-0 bg-background z-50 shadow-md border-b">
@@ -92,13 +93,21 @@ export const Navbar = () => {
 
         {/* Right Section: Categories, About Us, Contact Us, and Dark Mode Toggle */}
         <div className="hidden md:flex items-center space-x-4 ml-auto">
-          <DropdownMenu>
+          <DropdownMenu open={isCategoriesOpen} onOpenChange={setIsCategoriesOpen}>
             <DropdownMenuTrigger asChild>
-              <a className="text-foreground transition-brightness hover:brightness-125 cursor-pointer">
+              <a
+                className="text-foreground transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
+                onMouseEnter={() => setIsCategoriesOpen(true)}
+                onMouseLeave={() => setIsCategoriesOpen(false)}
+              >
                 Categories
               </a>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56">
+            <DropdownMenuContent
+              className="w-56"
+              onMouseEnter={() => setIsCategoriesOpen(true)}
+              onMouseLeave={() => setIsCategoriesOpen(false)}
+            >
               {categoryLinks.map(link => (
                 <DropdownMenuItem key={link.name} onClick={() => router.push(link.href)}>
                   {link.name}
@@ -106,8 +115,14 @@ export const Navbar = () => {
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
-          <a href="/about" className="text-foreground transition-brightness hover:brightness-125">About Us</a>
-          <a href="/contact" className="text-foreground transition-brightness hover:brightness-125">Contact Us</a>
+          <a
+            href="/about"
+            className="text-foreground transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
+          >About Us</a>
+          <a
+            href="/contact"
+            className="text-foreground transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
+          >Contact Us</a>
           <Button
             variant="ghost"
             size="icon"
