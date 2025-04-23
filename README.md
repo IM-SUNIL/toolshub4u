@@ -1,4 +1,4 @@
-# Firebase Studio
+# ToolsHub4u
 
 This is a NextJS starter in Firebase Studio.
 
