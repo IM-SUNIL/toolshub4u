@@ -95,7 +95,7 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 640);
+      setIsMobile(window.innerWidth < 768);
     };
 
     handleResize();
@@ -147,7 +147,7 @@ export const Navbar = () => {
   };
 
   return (
-    <header className="sticky top-0 bg-gradient-to-r from-white to-blue-100 z-50 shadow-md border-b">
+    <header className="sticky top-0 bg-gradient-to-r from-blue-100 to-white z-50 shadow-md border-b">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         {/* Left Section: Logo */}
         <a href="/" className="text-2xl font-semibold text-foreground title-animation">
@@ -160,7 +160,7 @@ export const Navbar = () => {
             <Input
               type="search"
               placeholder="Search tools, categories..."
-              className="w-full rounded-full py-2 px-4 shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 md:text-sm hover:shadow-md transition-shadow duration-200 bg-white"
+              className="w-full rounded-full py-2 px-4 shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 md:text-sm hover:shadow-md transition-shadow duration-200 bg-white border-white"
               ref={searchInputRef}
               value={searchTerm}
               onChange={handleSearch}
@@ -278,3 +278,4 @@ export const Navbar = () => {
     </header>
   );
 };
+
