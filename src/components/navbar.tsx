@@ -147,7 +147,7 @@ export const Navbar = () => {
   };
 
   return (
-    <header className="sticky top-0 bg-[#112240] z-50 shadow-md border-b">
+    <header className="sticky top-0 bg-gradient-to-r from-white to-blue-100 z-50 shadow-md border-b">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         {/* Left Section: Logo */}
         <a href="/" className="text-2xl font-semibold text-foreground title-animation">
