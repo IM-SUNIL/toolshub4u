@@ -7,7 +7,7 @@ import {Input} from "@/components/ui/input";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0D1117] to-[#161B22] text-white font-inter">
+    <div className="min-h-screen bg-gradient-to-b from-[#0a192f] to-[#1e2a38] text-white font-inter">
       <Navbar/>
       <div className="flex flex-col items-center justify-center h-[calc(100vh-60px)] text-center">
         <h1 className="text-5xl font-bold mb-4">Find the Perfect Tool for Your Needs</h1>
@@ -16,9 +16,9 @@ export default function Home() {
           <Input
             type="email"
             placeholder="Enter your email"
-            className="w-full md:w-auto px-4 py-2 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full md:w-auto px-4 py-2 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-cyan-500"
           />
-          <Button className="bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-2 rounded-md transition-colors">
+          <Button className="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold px-6 py-2 rounded-md transition-colors">
             Sign Up
           </Button>
         </div>
@@ -29,4 +29,3 @@ export default function Home() {
     </div>
   );
 }
-
