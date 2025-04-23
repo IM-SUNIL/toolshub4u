@@ -10,6 +10,7 @@ import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger
 import {Sun, Moon} from 'lucide-react';
 import {cn} from "@/lib/utils";
 import Link from "next/link";
+import {useTheme} from "next-themes";
 
 const tools = [
   {
@@ -89,27 +90,8 @@ export const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
   const router = useRouter();
   const searchInputRef = useRef<HTMLInputElement>(null);
-  const [theme, setTheme] = useState(() => {
-    if (typeof localStorage !== 'undefined') {
-      return localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
-    }
-    return 'light';
-  });
+  const {theme, setTheme} = useTheme();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  useEffect(() => {
-    if (typeof document !== 'undefined') {
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-    }
-  }, [theme]);
-
-  useEffect(() => {
-    localStorage.setItem('theme', theme);
-  }, [theme]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -137,9 +119,6 @@ export const Navbar = () => {
     {name: 'Design Tools', href: '/categories?category=design'},
   ];
 
-  const toggleTheme = () => {
-    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
-  };
   const [searchTerm, setSearchTerm] = useState('');
   const [suggestions, setSuggestions] = useState<string[]>([]);
 
@@ -242,7 +221,7 @@ export const Navbar = () => {
             variant="ghost"
             size="icon"
             className="text-foreground transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
-            onClick={toggleTheme}
+            onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
           >
             {theme === "dark" ? <Sun className="h-5 w-5 text-foreground cursor-pointer"/> :
               <Moon className="h-5 w-5 text-foreground cursor-pointer"/>}
@@ -286,7 +265,7 @@ export const Navbar = () => {
                   variant="ghost"
                   size="icon"
                   className="text-foreground transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
-                  onClick={toggleTheme}
+                  onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
                 >
                   {theme === "dark" ? <Sun className="h-5 w-5 text-foreground cursor-pointer"/> :
                     <Moon className="h-5 w-5 text-foreground cursor-pointer"/>}
@@ -299,4 +278,3 @@ export const Navbar = () => {
     </header>
   );
 };
-
