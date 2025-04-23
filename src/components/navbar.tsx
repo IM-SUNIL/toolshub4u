@@ -9,7 +9,7 @@ import {useRouter} from "next/navigation";
 import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
 import {Sun, Moon} from 'lucide-react';
 import {cn} from "@/lib/utils";
-import {Button} from "@/components/ui/button";
+import Link from "next/link";
 
 const tools = [
   {
@@ -96,8 +96,6 @@ export const Navbar = () => {
     return 'light';
   });
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
-
 
   useEffect(() => {
     if (typeof document !== 'undefined') {
@@ -112,7 +110,6 @@ export const Navbar = () => {
   useEffect(() => {
     localStorage.setItem('theme', theme);
   }, [theme]);
-
 
   useEffect(() => {
     const handleResize = () => {
@@ -169,23 +166,9 @@ export const Navbar = () => {
       router.push(`/search?query=${searchTerm}`);
     }
   };
-  const getCategoryTools = (category: string) => {
-    return tools.filter(tool => tool.category === category);
-  };
-  const handleCategoryMouseEnter = () => {
-    setIsDropdownOpen(true);
-  };
-
-  const handleCategoryMouseLeave = () => {
-    setIsDropdownOpen(false);
-  };
-
-  const handleCategoryClick = () => {
-    setIsCategoryDropdownOpen(!isCategoryDropdownOpen);
-  };
 
   return (
-    <header className="sticky top-0 bg-background z-50 shadow-md border-b">
+    <header className="sticky top-0 bg-[#0D1117] z-50 shadow-md border-b">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         {/* Left Section: Logo */}
         <a href="/" className="text-2xl font-semibold text-foreground title-animation">
@@ -230,31 +213,31 @@ export const Navbar = () => {
 
         {/* Right Section: Categories, About Us, Contact Us, and Dark Mode Toggle */}
         <div className="hidden md:flex items-center space-x-4 ml-auto">
-            <DropdownMenu open={isDropdownOpen} onOpenChange={setIsDropdownOpen}>
-              <DropdownMenuTrigger
-                  className="text-foreground transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
-                  onMouseEnter={handleCategoryMouseEnter}
-                  onMouseLeave={handleCategoryMouseLeave}
-              >
-                Categories
-              </DropdownMenuTrigger>
-              <DropdownMenuContent
-                  onMouseEnter={handleCategoryMouseEnter}
-                  onMouseLeave={handleCategoryMouseLeave}
-              >
-                {categoryLinks.map(link => (
-                  <DropdownMenuItem key={link.name}><a href={link.href}>{link.name}</a></DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-          <a
+          <DropdownMenu open={isDropdownOpen} onOpenChange={setIsDropdownOpen}>
+            <DropdownMenuTrigger
+              className="text-foreground transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
+              onMouseEnter={() => setIsDropdownOpen(true)}
+              onMouseLeave={() => setIsDropdownOpen(false)}
+            >
+              Categories
+            </DropdownMenuTrigger>
+            <DropdownMenuContent
+              onMouseEnter={() => setIsDropdownOpen(true)}
+              onMouseLeave={() => setIsDropdownOpen(false)}
+            >
+              {categoryLinks.map(link => (
+                <DropdownMenuItem key={link.name}><a href={link.href}>{link.name}</a></DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <Link
             href="/about"
             className="text-foreground transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
-          >About Us</a>
-          <a
+          >About Us</Link>
+          <Link
             href="/contact"
             className="text-foreground transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
-          >Contact Us</a>
+          >Contact Us</Link>
           <button
             variant="ghost"
             size="icon"
@@ -281,10 +264,10 @@ export const Navbar = () => {
                     Explore ToolsHub4u
                   </SheetDescription>
                 </SheetHeader>
-                <DropdownMenu open={isCategoryDropdownOpen} onOpenChange={setIsCategoryDropdownOpen}>
+                <DropdownMenu open={isDropdownOpen} onOpenChange={setIsDropdownOpen}>
                   <DropdownMenuTrigger
                     className="block py-2 text-foreground hover:underline"
-                    onClick={handleCategoryClick}
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                   >
                     Categories
                     <ChevronDown className="inline-block ml-1 w-4 h-4"/>
@@ -299,7 +282,7 @@ export const Navbar = () => {
                 <a href="/contact" className="block py-2 text-foreground hover:underline">Contact Us</a>
               </div>
               <div className="flex justify-center pb-4">
-                <Button
+                <button
                   variant="ghost"
                   size="icon"
                   className="text-foreground transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
@@ -307,7 +290,7 @@ export const Navbar = () => {
                 >
                   {theme === "dark" ? <Sun className="h-5 w-5 text-foreground cursor-pointer"/> :
                     <Moon className="h-5 w-5 text-foreground cursor-pointer"/>}
-                </Button>
+                </button>
               </div>
             </SheetContent>
           </Sheet>
@@ -316,3 +299,4 @@ export const Navbar = () => {
     </header>
   );
 };
+
