@@ -114,7 +114,7 @@ export const Navbar = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 shadow-md border-b">
+    <header className="sticky top-0 z-50 shadow-md border-b w-full" >
       <div className="container mx-auto px-4 py-3 flex items-center justify-between" style={{
         background: 'linear-gradient(270deg, #0f2027, #2c5364)',
         backgroundSize: '200% 200%',
