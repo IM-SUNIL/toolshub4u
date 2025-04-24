@@ -41,14 +41,14 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full" style={{
-        background: 'inherit',
+    <header className="sticky top-0 z-50 w-full text-white" style={{
+        background: 'linear-gradient(to right, #0f2027, #203A43, #2c5364)',
         backgroundSize: '200% 200%',
         animation: 'moveGradient 10s ease infinite'
       }}>
       <div className="container mx-auto px-4 py-3 flex items-center justify-between" >
         {/* Left Section: Logo */}
-        <a href="/" className="text-2xl font-semibold text-white title-animation">
+        <a href="/" className="text-2xl font-semibold title-animation">
           ToolsHub4u
         </a>
 
@@ -56,7 +56,7 @@ export const Navbar = () => {
         <div className="hidden md:flex items-center space-x-4 ml-auto">
           <DropdownMenu open={isDropdownOpen} onOpenChange={setIsDropdownOpen}>
             <DropdownMenuTrigger
-              className="text-white transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
+              className="transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
               onMouseEnter={() => setIsDropdownOpen(true)}
               onMouseLeave={() => setIsDropdownOpen(false)}
             >
@@ -67,26 +67,26 @@ export const Navbar = () => {
               onMouseLeave={() => setIsDropdownOpen(false)}
             >
               {categoryLinks.map(link => (
-                <DropdownMenuItem key={link.name}><a href={link.href}>{link.name}</a></DropdownMenuItem>
+                <DropdownMenuItem key={link.name}><a className="text-foreground" href={link.href}>{link.name}</a></DropdownMenuItem>
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
           <Link
             href="/about"
-            className="text-white transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
+            className="transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
           >About Us</Link>
           <Link
             href="/contact"
-            className="text-white transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
+            className="transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
           >Contact Us</Link>
           <button
             variant="ghost"
             size="icon"
-            className="text-white transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
+            className="transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
             onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
           >
-            {theme === "dark" ? <Sun className="h-5 w-5 text-white cursor-pointer"/> :
-              <Moon className="h-5 w-5 text-white cursor-pointer"/>}
+            {theme === "dark" ? <Sun className="h-5 w-5  cursor-pointer"/> :
+              <Moon className="h-5 w-5  cursor-pointer"/>}
           </button>
         </div>
 
@@ -95,7 +95,7 @@ export const Navbar = () => {
         <div className="md:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <Menu className="h-5 w-5 text-white"/>
+              <Menu className="h-5 w-5 "/>
             </SheetTrigger>
             <SheetContent side="right" className="w-full sm:w-3/4 md:w-2/3 flex flex-col justify-between">
               <div>
@@ -107,7 +107,7 @@ export const Navbar = () => {
                 </SheetHeader>
                 <DropdownMenu open={isDropdownOpen} onOpenChange={setIsDropdownOpen}>
                   <DropdownMenuTrigger
-                    className="block py-2 text-white hover:underline"
+                    className="block py-2  hover:underline"
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                   >
                     Categories
@@ -119,18 +119,18 @@ export const Navbar = () => {
                     ))}
                   </DropdownMenuContent>
                 </DropdownMenu>
-                <a href="/about" className="block py-2 text-white hover:underline">About Us</a>
-                <a href="/contact" className="block py-2 text-white hover:underline">Contact Us</a>
+                <a href="/about" className="block py-2  hover:underline">About Us</a>
+                <a href="/contact" className="block py-2  hover:underline">Contact Us</a>
               </div>
               <div className="flex justify-center pb-4">
                 <button
                   variant="ghost"
                   size="icon"
-                  className="text-white transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
+                  className="transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
                   onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
                 >
-                  {theme === "dark" ? <Sun className="h-5 w-5 text-white cursor-pointer"/> :
-                    <Moon className="h-5 w-5 text-white cursor-pointer"/>}
+                  {theme === "dark" ? <Sun className="h-5 w-5  cursor-pointer"/> :
+                    <Moon className="h-5 w-5  cursor-pointer"/>}
                 </button>
               </div>
             </SheetContent>
