@@ -47,7 +47,7 @@ export const Navbar = () => {
         {/* Right Section: Categories, About Us, Contact Us, and Dark Mode Toggle */}
         <div className="hidden md:flex items-center space-x-4 ml-auto">
           <DropdownMenu>
-            <DropdownMenuTrigger className="text-sm hover:brightness-125 transition-transform cursor-pointer flex items-center">
+            <DropdownMenuTrigger className="text-sm hover:brightness-125 transition-transform cursor-pointer flex items-center" style={{ outline: 'none', boxShadow: 'none' }}>
               Categories <ChevronDown className="ml-1 h-4 w-4"/>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="bg-secondary border-none">
