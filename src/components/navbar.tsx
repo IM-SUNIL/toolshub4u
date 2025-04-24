@@ -9,7 +9,6 @@ import {cn} from "@/lib/utils";
 import Link from "next/link";
 import {SearchBar} from "@/components/search-bar";
 import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
-import {ChevronDown} from "lucide-react";
 import {Sun, Moon} from 'lucide-react';
 import {useTheme} from 'next-themes';
 
@@ -48,7 +47,7 @@ export const Navbar = () => {
         <div className="hidden md:flex items-center space-x-4 ml-auto">
           <DropdownMenu>
             <DropdownMenuTrigger className="text-sm hover:brightness-125 transition-transform cursor-pointer flex items-center" style={{ outline: 'none', boxShadow: 'none' }}>
-              Categories <ChevronDown className="ml-1 h-4 w-4"/>
+              Categories
             </DropdownMenuTrigger>
             <DropdownMenuContent className="bg-secondary border-none">
               <DropdownMenuItem><Link href="/categories?category=ai">AI Tools</Link></DropdownMenuItem>
@@ -86,7 +85,7 @@ export const Navbar = () => {
               <div className="flex flex-col items-center space-y-4">
                 <DropdownMenu>
                   <DropdownMenuTrigger className="text-sm hover:brightness-125 transition-transform cursor-pointer flex items-center">
-                    Categories <ChevronDown className="ml-1 h-4 w-4"/>
+                    Categories
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="bg-secondary border-none">
                     <DropdownMenuItem><Link href="/categories?category=ai">AI Tools</Link></DropdownMenuItem>
@@ -111,3 +110,4 @@ export const Navbar = () => {
     </header>
   );
 };
+
