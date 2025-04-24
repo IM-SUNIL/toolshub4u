@@ -33,11 +33,10 @@ export default function Home() {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </form>
-        <Button variant="outline" className="mt-6 text-white hover:text-gray-300 border-white">
-          Try ToolsHub4u
-        </Button>
+        
       </div>
     </div>
   );
 }
+
 
