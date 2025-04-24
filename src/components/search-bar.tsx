@@ -79,7 +79,8 @@ export const SearchBar = () => {
       <Input
         type="search"
         placeholder="Search tools, categories..."
-        className="w-full rounded-full py-2 px-4 shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 md:text-sm hover:shadow-md transition-shadow duration-200 border-gray-300"
+        className="w-full rounded-full py-2 px-4 shadow-sm  focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 md:text-sm hover:shadow-md transition-shadow duration-200 border-gray-300"
+        style={{ borderColor: 'gray', transition: 'border-color 0.3s ease',}}
         value={searchTerm}
         onChange={handleSearch}
       />
