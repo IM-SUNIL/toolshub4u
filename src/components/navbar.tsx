@@ -18,7 +18,14 @@ export const Navbar = () => {
   const router = useRouter();
   const {theme, setTheme} = useTheme();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
+  const categoryLinks = [
+    {name: 'AI Tools', href: '/categories?category=ai'},
+    {name: 'Resume Templates', href: '/categories?category=resume'},
+    {name: 'PDF Tools', href: '/categories?category=pdf'},
+    {name: 'Video Editors', href: '/categories?category=video'},
+    {name: 'SEO Tools', href: '/categories?category=seo'},
+    {name: 'Design Tools', href: '/categories?category=design'},
+  ];
 
   useEffect(() => {
     const handleResize = () => {
@@ -33,17 +40,8 @@ export const Navbar = () => {
     };
   }, []);
 
-  const categoryLinks = [
-    {name: 'AI Tools', href: '/categories?category=ai'},
-    {name: 'Resume Templates', href: '/categories?category=resume'},
-    {name: 'PDF Tools', href: '/categories?category=pdf'},
-    {name: 'Video Editors', href: '/categories?category=video'},
-    {name: 'SEO Tools', href: '/categories?category=seo'},
-    {name: 'Design Tools', href: '/categories?category=design'},
-  ];
-
   return (
-    <header className="sticky top-0 z-50 shadow-md border-b w-full" style={{
+    <header className="sticky top-0 z-50 w-full" style={{
         background: 'inherit',
         backgroundSize: '200% 200%',
         animation: 'moveGradient 10s ease infinite'
@@ -139,6 +137,11 @@ export const Navbar = () => {
           </Sheet>
         </div>
       </div>
+       {isMobile && (
+        <div className="container mx-auto px-4 py-3">
+          <SearchBar/>
+        </div>
+      )}
     </header>
   );
 };
