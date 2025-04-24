@@ -19,7 +19,7 @@ export default function Home() {
     }
   };
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0a192f] to-[#1e2a38] text-white font-inter">
+    <div className="min-h-screen text-white font-inter">
       <Navbar/>
       <div className="flex flex-col items-center justify-center h-[calc(100vh-60px)] text-center">
         <h1 className="text-5xl font-bold mb-4">Find the Perfect Tool for Your Needs</h1>
@@ -38,5 +38,4 @@ export default function Home() {
     </div>
   );
 }
-
 

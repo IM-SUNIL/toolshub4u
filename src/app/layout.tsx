@@ -25,10 +25,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-sans antialiased bg-gradient-to-b from-[#0a192f] to-[#1e2a38] text-white`}>
+      <body className={`${inter.variable} font-sans antialiased`}>
         {children}
         <Toaster />
       </body>
     </html>
   );
 }
+
