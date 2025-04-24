@@ -3,8 +3,6 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
-import { Search } from "lucide-react";
-import { Input } from "@/components/ui/input";
 
 
 const inter = Inter({
@@ -27,20 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-sans antialiased`}>
-        
-        <div className="md:hidden container mx-auto px-4 py-3">
-          
-          <Input
-            type="search"
-            placeholder="Search for tools..."
-            className="w-full rounded-full py-2 px-4 shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 md:text-sm hover:shadow-lg transition-shadow duration-200"
-          />
-          <div className="absolute inset-y-0 right-3 flex items-center">
-            <Search className="h-4 w-4 text-muted-foreground" />
-          </div>
-        
-        </div>
+      <body className={`${inter.variable} font-sans antialiased bg-gradient-to-r from-blue-100 to-white`}>
         {children}
         <Toaster />
       </body>
