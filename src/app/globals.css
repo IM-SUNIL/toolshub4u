@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,37 +8,6 @@ body {
 
 @layer base {
   :root {
-    --background: 10 25 47;
-    --foreground: 0 0 0;
-    --muted: 17 33 54;
-    --muted-foreground: 125 148 179;
-    --popover: 17 33 54;
-    --popover-foreground: 0 0 0;
-    --card: 17 33 54;
-    --card-foreground: 0 0 0;
-    --border: 33 56 85;
-    --input: 243 244 246;
-    --primary: 56 189 248;
-    --primary-foreground: 0 0 0;
-    --secondary: 23 45 72;
-    --secondary-foreground: 0 0 0;
-    --accent: 79 227 255;
-    --accent-foreground: 0 0 0;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --ring: 56 189 248;
-    --radius: 0.5rem;
-    --sidebar-background: 17 33 54;
-    --sidebar-foreground: 0 0 0;
-    --sidebar-primary: 56 189 248;
-    --sidebar-primary-foreground: 0 0 0;
-    --sidebar-accent: 23 45 72;
-    --sidebar-accent-foreground: 0 0 0;
-    --sidebar-border: 33 56 85;
-    --sidebar-ring: 56 189 248;
-  }
-
-  .dark {
     --background: 249 250 251;
     --foreground: 0 0 0;
     --muted: 243 244 246;
@@ -69,6 +37,37 @@ body {
     --sidebar-border: 229 231 235;
     --sidebar-ring: 56 189 248;
   }
+
+  .dark {
+    --background: 10 25 47;
+    --foreground: 255 255 255;
+    --muted: 17 33 54;
+    --muted-foreground: 125 148 179;
+    --popover: 17 33 54;
+    --popover-foreground: 255 255 255;
+    --card: 17 33 54;
+    --card-foreground: 255 255 255;
+    --border: 33 56 85;
+    --input: 243 244 246;
+    --primary: 56 189 248;
+    --primary-foreground: 0 0 0;
+    --secondary: 23 45 72;
+    --secondary-foreground: 255 255 255;
+    --accent: 79 227 255;
+    --accent-foreground: 0 0 0;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --ring: 56 189 248;
+    --radius: 0.5rem;
+    --sidebar-background: 17 33 54;
+    --sidebar-foreground: 255 255 255;
+    --sidebar-primary: 56 189 248;
+    --sidebar-primary-foreground: 0 0 0;
+    --sidebar-accent: 23 45 72;
+    --sidebar-accent-foreground: 0 0 0;
+    --sidebar-border: 33 56 85;
+    --sidebar-ring: 56 189 248;
+  }
 }
 
 @layer base {
@@ -94,4 +93,5 @@ input[type="search"]::-webkit-search-cancel-button {
   width: 0;
 }
     
+
 
