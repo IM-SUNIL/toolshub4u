@@ -32,9 +32,6 @@ export default function Home() {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <Button type="submit" className="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold px-6 py-2 rounded-md transition-colors">
-            <Search className="h-4 w-4 mr-2"/> Search
-          </Button>
         </form>
         <Button variant="outline" className="mt-6 text-white hover:text-gray-300 border-white">
           Try ToolsHub4u
@@ -43,3 +40,4 @@ export default function Home() {
     </div>
   );
 }
+
