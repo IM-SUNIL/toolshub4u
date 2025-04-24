@@ -28,7 +28,7 @@ export default function Home() {
           <Input
             type="search"
             placeholder="Search for tools..."
-            className="w-full md:w-auto px-4 py-2 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-cyan-500"
+            className="w-full md:w-auto px-4 py-2 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-cyan-500 bg-gray-100/10"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -38,4 +38,5 @@ export default function Home() {
     </div>
   );
 }
+
 
