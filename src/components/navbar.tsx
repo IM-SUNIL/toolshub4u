@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, {useState, useEffect, useRef} from 'react';
@@ -114,8 +115,8 @@ export const Navbar = () => {
   ];
 
   return (
-    <header className="sticky top-0 bg-gradient-to-r from-blue-100 to-white z-50 shadow-md border-b">
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+    <header className="sticky top-0 z-50 shadow-md border-b">
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between bg-gradient-to-r from-blue-100 to-white">
         {/* Left Section: Logo */}
         <a href="/" className="text-2xl font-semibold text-foreground title-animation">
           ToolsHub4u
