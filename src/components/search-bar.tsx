@@ -75,17 +75,17 @@ export const SearchBar = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="relative w-full md:w-3/4 lg:w-1/2 mx-auto">
+    <form onSubmit={handleSubmit} className="relative w-full md:w-1/2 mx-auto">
       <Input
         type="search"
         placeholder="Search tools, categories..."
-        className="w-full rounded-full py-2 px-4 shadow-sm  focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 md:text-sm hover:shadow-md transition-shadow duration-200 border-gray-300"
+        className="w-full rounded-full py-2 px-4 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 md:text-sm hover:shadow-md transition-shadow duration-200 border-gray-300 bg-transparent"
         style={{ borderColor: 'gray', transition: 'border-color 0.3s ease',}}
         value={searchTerm}
         onChange={handleSearch}
       />
       <div className="absolute inset-y-0 right-3 flex items-center">
-        <button type="submit" className="p-2 rounded-full hover:bg-accent transition-colors">
+        <button type="submit" className="p-2 rounded-full hover:bg-gray transition-colors">
           <Search className="h-4 w-4 text-muted-foreground"/>
         </button>
       </div>
@@ -94,7 +94,7 @@ export const SearchBar = () => {
           {suggestions.map((suggestion, index) => (
             <li
               key={index}
-              className="px-4 py-2 text-sm text-popover-foreground hover:bg-accent hover:text-accent-foreground cursor-pointer transition-colors"
+              className="px-4 py-2 text-sm text-popover-foreground hover:bg-gray hover:text-gray-foreground cursor-pointer transition-colors"
               onClick={() => {
                 setSearchTerm(suggestion);
                 setSuggestions([]);
