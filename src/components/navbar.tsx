@@ -8,6 +8,8 @@ import {useRouter} from "next/navigation";
 import {cn} from "@/lib/utils";
 import Link from "next/link";
 import {SearchBar} from "@/components/search-bar";
+import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
+import {ChevronDown} from "lucide-react";
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -41,6 +43,17 @@ export const Navbar = () => {
 
         {/* Right Section: Categories, About Us, Contact Us, and Dark Mode Toggle */}
         <div className="hidden md:flex items-center space-x-4 ml-auto">
+          <DropdownMenu>
+            <DropdownMenuTrigger className="text-sm hover:text-gray-300 transition-colors cursor-pointer flex items-center">
+              Categories <ChevronDown className="ml-1 h-4 w-4"/>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="bg-secondary border-none">
+              <DropdownMenuItem><Link href="/categories?category=ai">AI Tools</Link></DropdownMenuItem>
+              <DropdownMenuItem><Link href="/categories?category=pdf">PDF Tools</Link></DropdownMenuItem>
+              <DropdownMenuItem><Link href="/categories?category=video">Video Tools</Link></DropdownMenuItem>
+              <DropdownMenuItem><Link href="/categories?category=image">Image Tools</Link></DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
 
 
