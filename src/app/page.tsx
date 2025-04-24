@@ -7,6 +7,7 @@ import {Input} from "@/components/ui/input";
 import {useRouter} from "next/navigation";
 import {Search} from "lucide-react";
 import {useState} from "react";
+import {SearchBar} from "@/components/search-bar";
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -25,10 +26,8 @@ export default function Home() {
         <h1 className="text-5xl font-bold mb-4">Find the Perfect Tool for Your Needs</h1>
         <p className="text-gray-400 mb-8">Discover a curated directory of online tools to boost your productivity and creativity.</p>
         
-        
+        <SearchBar/>
       </div>
     </div>
   );
 }
-
-
