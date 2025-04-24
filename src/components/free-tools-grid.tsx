@@ -1,3 +1,4 @@
+
 'use client';
 
 import React from 'react';
@@ -35,7 +36,7 @@ export const FreeToolsGrid = () => {
         >
           <img src={category.imageUrl} alt={category.name} className="w-full h-40 object-cover"/>
           <div className="p-4 flex flex-col justify-between h-full">
-            <h3 className="text-xl font-semibold text-foreground mb-2">{category.name}</h3>
+            <h3 className="text-xl font-semibold text-white mb-2">{category.name}</h3>
             <Button onClick={() => router.push('/categories')}>Explore</Button>
           </div>
         </div>
@@ -43,3 +44,4 @@ export const FreeToolsGrid = () => {
     </div>
   );
 };
+

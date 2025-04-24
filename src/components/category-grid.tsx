@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 
 const categories = [
@@ -43,10 +44,11 @@ export const CategoryGrid = () => {
           className="bg-card rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300"
         >
           <div className="text-3xl mb-4">{category.icon}</div>
-          <h3 className="text-xl font-semibold text-foreground mb-2">{category.name}</h3>
-          <p className="text-muted-foreground">{category.description}</p>
+          <h3 className="text-xl font-semibold text-white mb-2">{category.name}</h3>
+          <p className="text-gray-300">{category.description}</p>
         </div>
       ))}
     </div>
   );
 };
+

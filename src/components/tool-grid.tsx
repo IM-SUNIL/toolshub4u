@@ -1,3 +1,4 @@
+
 'use client';
 
 import React from 'react';
@@ -53,8 +54,8 @@ export const ToolGrid = () => {
         >
           <img src={tool.thumbnail} alt={tool.name} className="w-full h-40 object-cover"/>
           <div className="p-4">
-            <h3 className="text-xl font-semibold text-foreground mb-2">{tool.name}</h3>
-            <p className="text-muted-foreground">{tool.description}</p>
+            <h3 className="text-xl font-semibold text-white mb-2">{tool.name}</h3>
+            <p className="text-gray-300">{tool.description}</p>
             <div className="mt-3 flex items-center justify-between">
               <span
                 className={`px-2 py-1 rounded-full text-xs font-semibold ${
@@ -74,3 +75,4 @@ export const ToolGrid = () => {
     </div>
   );
 };
+

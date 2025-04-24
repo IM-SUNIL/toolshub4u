@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, {useSearchParams} from 'next/navigation';
@@ -58,7 +59,7 @@ export default function SearchPage() {
 
   return (
     <>
-      <h1 className="text-3xl font-semibold mb-6">Search Results for "{query}"</h1>
+      <h1 className="text-3xl font-semibold mb-6 text-white">Search Results for "{query}"</h1>
       {filteredTools.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredTools.map((tool) => (
@@ -70,8 +71,8 @@ export default function SearchPage() {
               }}
             >
               <div className="p-4">
-                <h3 className="text-xl font-semibold text-foreground mb-2">{tool.name}</h3>
-                <p className="text-muted-foreground">{tool.description}</p>
+                <h3 className="text-xl font-semibold text-white mb-2">{tool.name}</h3>
+                <p className="text-gray-300">{tool.description}</p>
                 <div className="mt-3 flex items-center justify-between">
                   <div className="flex items-center">
                     {tool.tags.map((tag, index) => (
@@ -92,8 +93,9 @@ export default function SearchPage() {
           ))}
         </div>
       ) : (
-        <p className="text-muted-foreground">No tools found matching your query.</p>
+        <p className="text-gray-300">No tools found matching your query.</p>
       )}
     </>
   );
 }
+
