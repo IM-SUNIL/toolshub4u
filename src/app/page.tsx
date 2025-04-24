@@ -24,15 +24,7 @@ export default function Home() {
       <div className="flex flex-col items-center justify-center h-[calc(100vh-60px)] text-center">
         <h1 className="text-5xl font-bold mb-4">Find the Perfect Tool for Your Needs</h1>
         <p className="text-gray-400 mb-8">Discover a curated directory of online tools to boost your productivity and creativity.</p>
-        <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-4">
-          <Input
-            type="search"
-            placeholder="Search for tools..."
-            className="w-full md:w-auto px-4 py-2 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-cyan-500 bg-gray-100/10"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-        </form>
+        
         
       </div>
     </div>
