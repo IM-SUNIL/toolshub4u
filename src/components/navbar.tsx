@@ -10,11 +10,14 @@ import Link from "next/link";
 import {SearchBar} from "@/components/search-bar";
 import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
 import {ChevronDown} from "lucide-react";
+import {Sun, Moon} from 'lucide-react';
+import {useTheme} from 'next-themes';
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const router = useRouter();
+  const {theme, setTheme} = useTheme();
 
   useEffect(() => {
     const handleResize = () => {
@@ -44,7 +47,7 @@ export const Navbar = () => {
         {/* Right Section: Categories, About Us, Contact Us, and Dark Mode Toggle */}
         <div className="hidden md:flex items-center space-x-4 ml-auto">
           <DropdownMenu>
-            <DropdownMenuTrigger className="text-sm hover:text-gray-300 transition-colors cursor-pointer flex items-center">
+            <DropdownMenuTrigger className="text-sm hover:brightness-125 transition-transform cursor-pointer flex items-center">
               Categories <ChevronDown className="ml-1 h-4 w-4"/>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="bg-secondary border-none">
@@ -54,6 +57,14 @@ export const Navbar = () => {
               <DropdownMenuItem><Link href="/categories?category=image">Image Tools</Link></DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
+             <Link href="/submit-tool" className="text-sm hover:brightness-125 transition-transform cursor-pointer">Submit Tool</Link>
+             <Link href="/my-favorites" className="text-sm hover:brightness-125 transition-transform cursor-pointer">My Favorites</Link>
+          <button
+            className="p-1 rounded-full hover:bg-gray-200 transition-colors"
+            onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+          >
+            {theme === 'light' ? <Moon className="h-4 w-4"/> : <Sun className="h-4 w-4"/>}
+          </button>
         </div>
 
 
@@ -71,18 +82,32 @@ export const Navbar = () => {
                     Explore ToolsHub4u
                   </SheetDescription>
                 </SheetHeader>
-                <a href="/about" className="block py-2  hover:underline">About Us</a>
-                <a href="/contact" className="block py-2  hover:underline">Contact Us</a>
+              </div>
+              <div className="flex flex-col items-center space-y-4">
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="text-sm hover:brightness-125 transition-transform cursor-pointer flex items-center">
+                    Categories <ChevronDown className="ml-1 h-4 w-4"/>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="bg-secondary border-none">
+                    <DropdownMenuItem><Link href="/categories?category=ai">AI Tools</Link></DropdownMenuItem>
+                    <DropdownMenuItem><Link href="/categories?category=pdf">PDF Tools</Link></DropdownMenuItem>
+                    <DropdownMenuItem><Link href="/categories?category=video">Video Tools</Link></DropdownMenuItem>
+                    <DropdownMenuItem><Link href="/categories?category=image">Image Tools</Link></DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+                <Link href="/submit-tool" className="text-sm hover:brightness-125 transition-transform cursor-pointer">Submit Tool</Link>
+                <Link href="/my-favorites" className="text-sm hover:brightness-125 transition-transform cursor-pointer">My Favorites</Link>
+                <button
+                  className="p-1 rounded-full hover:bg-gray-200 transition-colors"
+                  onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+                >
+                  {theme === 'light' ? <Moon className="h-4 w-4"/> : <Sun className="h-4 w-4"/>}
+                </button>
               </div>
             </SheetContent>
           </Sheet>
         </div>
       </div>
-       {isMobile && (
-        <div className="container mx-auto px-4 py-3">
-          <SearchBar/>
-        </div>
-      )}
     </header>
   );
 };
