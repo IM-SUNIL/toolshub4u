@@ -1,7 +1,7 @@
 'use client';
 
-import React, {useState, useEffect, useRef} from 'react';
-import {Menu, ChevronDown} from 'lucide-react';
+import React, {useState, useEffect} from 'react';
+import {ChevronDown, Menu} from 'lucide-react';
 import './navbar.css';
 import {Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger} from "@/components/ui/sheet";
 import {useRouter} from "next/navigation";
@@ -10,79 +10,7 @@ import {Sun, Moon} from 'lucide-react';
 import {cn} from "@/lib/utils";
 import Link from "next/link";
 import {useTheme} from "next-themes";
-
-const tools = [
-  {
-    name: 'Grammarly',
-    description: 'An AI-powered writing assistant that helps you improve your grammar, spelling, and style.',
-    tags: ['ai', 'writing', 'free'],
-    id: 'grammarly',
-    category: 'ai'
-  },
-  {
-    name: 'Adobe Acrobat PDF Editor',
-    description: 'A comprehensive PDF editor to create, convert, edit, and sign PDF documents.',
-    tags: ['pdf', 'paid', 'editing'],
-    id: 'adobe-acrobat',
-    category: 'pdf'
-  },
-  {
-    name: 'Canva',
-    description: 'A graphic design platform that allows users to create social media graphics, presentations, posters, and other visual content.',
-    tags: ['design', 'free', 'marketing'],
-    id: 'canva',
-    category: 'design'
-  },
-  {
-    name: 'SEMrush',
-    description: 'An online visibility management and content marketing platform.',
-    tags: ['seo', 'paid', 'marketing'],
-    id: 'semrush',
-    category: 'seo'
-  },
-  {
-    name: 'Kickresume',
-    description: 'A resume builder platform with pre-designed templates and AI writing assistance.',
-    tags: ['resume', 'free', 'ai'],
-    id: 'kickresume',
-    category: 'resume'
-  },
-  {
-    name: 'Adobe Premiere Pro',
-    description: 'A timeline-based video editing software application.',
-    tags: ['video', 'paid', 'editing'],
-    id: 'adobe-premiere-pro',
-    category: 'video'
-  },
-  {
-    name: 'Final Cut Pro',
-    description: 'A professional non-linear video editing application.',
-    tags: ['video', 'paid', 'editing'],
-    id: 'final-cut-pro',
-    category: 'video'
-  },
-  {
-    name: 'Google Analytics',
-    description: 'A web analytics service that tracks and reports website traffic.',
-    tags: ['analytics', 'free', 'marketing'],
-    id: 'google-analytics',
-    category: 'seo'
-  },
-  {
-    name: 'Sketch',
-    description: 'A vector graphics editor for macOS, primarily used for UI and UX design.',
-    tags: ['design', 'paid', 'ui/ux'],
-    id: 'sketch',
-    category: 'design'
-  },
-  {
-    name: 'ChatGPT',
-    description: 'A conversational AI that can generate human-like text for various applications.',
-    tags: ['ai', 'conversational', 'free'],
-    id: 'chatgpt',
-    category: 'ai'
-  }
-];
+import {SearchBar} from "@/components/search-bar";
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -90,6 +18,7 @@ export const Navbar = () => {
   const router = useRouter();
   const {theme, setTheme} = useTheme();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const handleResize = () => {
@@ -114,12 +43,12 @@ export const Navbar = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 shadow-md border-b w-full" >
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between" style={{
-        background: 'linear-gradient(270deg, #0f2027, #2c5364)',
+    <header className="sticky top-0 z-50 shadow-md border-b w-full" style={{
+        background: 'inherit',
         backgroundSize: '200% 200%',
         animation: 'moveGradient 10s ease infinite'
       }}>
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between" >
         {/* Left Section: Logo */}
         <a href="/" className="text-2xl font-semibold text-white title-animation">
           ToolsHub4u
