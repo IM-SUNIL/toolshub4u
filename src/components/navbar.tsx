@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, {useState, useEffect, useRef} from 'react';
@@ -116,9 +115,9 @@ export const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-50 shadow-md border-b">
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between bg-gradient-to-r from-blue-100 to-white">
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between bg-gradient-to-r from-[#0a192f] to-[#1e2a38]">
         {/* Left Section: Logo */}
-        <a href="/" className="text-2xl font-semibold text-foreground title-animation">
+        <a href="/" className="text-2xl font-semibold text-white title-animation">
           ToolsHub4u
         </a>
 
@@ -126,7 +125,7 @@ export const Navbar = () => {
         <div className="hidden md:flex items-center space-x-4 ml-auto">
           <DropdownMenu open={isDropdownOpen} onOpenChange={setIsDropdownOpen}>
             <DropdownMenuTrigger
-              className="text-foreground transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200 cursor-pointer"
+              className="text-white transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
               onMouseEnter={() => setIsDropdownOpen(true)}
               onMouseLeave={() => setIsDropdownOpen(false)}
             >
@@ -143,20 +142,20 @@ export const Navbar = () => {
           </DropdownMenu>
           <Link
             href="/about"
-            className="text-foreground transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
+            className="text-white transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
           >About Us</Link>
           <Link
             href="/contact"
-            className="text-foreground transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
+            className="text-white transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
           >Contact Us</Link>
           <button
             variant="ghost"
             size="icon"
-            className="text-foreground transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
+            className="text-white transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
             onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
           >
-            {theme === "dark" ? <Sun className="h-5 w-5 text-foreground cursor-pointer"/> :
-              <Moon className="h-5 w-5 text-foreground cursor-pointer"/>}
+            {theme === "dark" ? <Sun className="h-5 w-5 text-white cursor-pointer"/> :
+              <Moon className="h-5 w-5 text-white cursor-pointer"/>}
           </button>
         </div>
 
@@ -165,7 +164,7 @@ export const Navbar = () => {
         <div className="md:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <Menu className="h-5 w-5"/>
+              <Menu className="h-5 w-5 text-white"/>
             </SheetTrigger>
             <SheetContent side="right" className="w-full sm:w-3/4 md:w-2/3 flex flex-col justify-between">
               <div>
@@ -177,7 +176,7 @@ export const Navbar = () => {
                 </SheetHeader>
                 <DropdownMenu open={isDropdownOpen} onOpenChange={setIsDropdownOpen}>
                   <DropdownMenuTrigger
-                    className="block py-2 text-foreground hover:underline"
+                    className="block py-2 text-white hover:underline"
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                   >
                     Categories
@@ -189,18 +188,18 @@ export const Navbar = () => {
                     ))}
                   </DropdownMenuContent>
                 </DropdownMenu>
-                <a href="/about" className="block py-2 text-foreground hover:underline">About Us</a>
-                <a href="/contact" className="block py-2 text-foreground hover:underline">Contact Us</a>
+                <a href="/about" className="block py-2 text-white hover:underline">About Us</a>
+                <a href="/contact" className="block py-2 text-white hover:underline">Contact Us</a>
               </div>
               <div className="flex justify-center pb-4">
                 <button
                   variant="ghost"
                   size="icon"
-                  className="text-foreground transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
+                  className="text-white transition-brightness hover:brightness-125 cursor-pointer hover:text-shadow-md transition-shadow duration-200"
                   onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
                 >
-                  {theme === "dark" ? <Sun className="h-5 w-5 text-foreground cursor-pointer"/> :
-                    <Moon className="h-5 w-5 text-foreground cursor-pointer"/>}
+                  {theme === "dark" ? <Sun className="h-5 w-5 text-white cursor-pointer"/> :
+                    <Moon className="h-5 w-5 text-white cursor-pointer"/>}
                 </button>
               </div>
             </SheetContent>
