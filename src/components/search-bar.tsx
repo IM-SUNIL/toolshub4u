@@ -108,3 +108,4 @@ export const SearchBar = () => {
     </form>
   );
 };
+
